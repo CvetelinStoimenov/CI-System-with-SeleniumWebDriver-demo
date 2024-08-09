@@ -1,4 +1,4 @@
-name: Selenium WebDriver CI
+name: CI Pipeline
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up .NET Core
+    - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
@@ -29,17 +29,20 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore SeleniumBasicExercise.sln
 
-    - name: Build the solution
+    - name: Build solution
       run: dotnet build SeleniumBasicExercise.sln --configuration Debug --no-restore
 
-    - name: List contents of TestProject1 directory
-      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject1/bin/Debug/net6.0/
+    - name: Set execute permissions for selenium-manager
+      run: chmod +x /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject1/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
 
-    - name: List contents of TestProject2 directory
-      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject2/bin/Debug/net6.0/
-
-    - name: List contents of TestProject3 directory
-      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject3/bin/Debug/net6.0/
+    - name: List directory contents for debugging
+      run: |
+        echo "Listing contents of TestProject1/bin/Debug/net6.0/"
+        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject1/bin/Debug/net6.0/
+        echo "Listing contents of TestProject2/bin/Debug/net6.0/"
+        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject2/bin/Debug/net6.0/
+        echo "Listing contents of TestProject3/bin/Debug/net6.0/"
+        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject3/bin/Debug/net6.0/
 
     - name: Run TestProject1 tests
       env:
