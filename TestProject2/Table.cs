@@ -1,7 +1,6 @@
-using System.Collections.ObjectModel;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Chrome;
+using System.Collections.ObjectModel;
 
 namespace TestProject2
 {
