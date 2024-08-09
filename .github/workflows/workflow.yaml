@@ -26,50 +26,32 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
 
-    - name: Install dependencies
+    - name: Restore dependencies
       run: dotnet restore SeleniumBasicExercise.sln
 
-    - name: Build
+    - name: Build the solution
       run: dotnet build SeleniumBasicExercise.sln --configuration Debug --no-restore
 
-      
-    - name: Debugging - List higher-level directories
-      run: |
-        echo "Listing contents of SeleniumIDE directory:"
-        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/
-        echo "Listing contents of bin directory:"
-        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/
-        echo "Listing contents of Debug directory (if it exists):"
-        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/ || echo "Debug directory does not exist"
+    - name: List contents of TestProject1 directory
+      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject1/bin/Debug/net6.0/
 
+    - name: List contents of TestProject2 directory
+      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject2/bin/Debug/net6.0/
 
-    - name: Debugging - List output directories
-      run: |
-        echo "Listing contents of Debug directory:"
-        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/
-        echo "Listing contents of selenium-manager directory:"
-        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/
-        
-    - name: Set execute permissions for selenium-manager
-      run: chmod +x /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux/selenium-manager || echo "File not found, skipping chmod"
+    - name: List contents of TestProject3 directory
+      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/TestProject3/bin/Debug/net6.0/
 
-    - name: Run TestProject1 test
+    - name: Run TestProject1 tests
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
-      run: |
-        echo "Running TestProject1 tests"
-        dotnet test TestProject1/TestProject1.csproj --verbosity normal
-        
-    - name: Run TestProject2 test
+      run: dotnet test TestProject1/TestProject1.csproj --verbosity normal
+
+    - name: Run TestProject2 tests
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
-      run: |
-        echo "Running TestProject2 tests"
-        dotnet test TestProject2/TestProject2.csproj --verbosity normal
-        
-    - name: Run TestProject3 test
+      run: dotnet test TestProject2/TestProject2.csproj --verbosity normal
+
+    - name: Run TestProject3 tests
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
-      run: |
-        echo "Running TestProject3 tests"
-        dotnet test TestProject3/TestProject3.csproj --verbosity normal
+      run: dotnet test TestProject3/TestProject3.csproj --verbosity normal
