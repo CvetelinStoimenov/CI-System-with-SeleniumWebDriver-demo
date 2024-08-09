@@ -30,7 +30,18 @@ jobs:
       run: dotnet restore SeleniumBasicExercise.sln
 
     - name: Build
-      run: dotnet build SeleniumBasicExercise.sln --no-restore
+        run: dotnet build SeleniumBasicExercise.sln --configuration Debug --no-restore
+
+      
+    - name: Debugging - List higher-level directories
+        run: |
+            echo "Listing contents of SeleniumIDE directory:"
+            ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/
+            echo "Listing contents of bin directory:"
+            ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/
+            echo "Listing contents of Debug directory (if it exists):"
+            ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/ || echo "Debug directory does not exist"
+
 
     - name: Debugging - List output directories
       run: |
