@@ -33,10 +33,10 @@ jobs:
       run: dotnet build SeleniumBasicExercise.sln --no-restore
 
     - name: Set execute permissions for selenium-manager
-      run: chmod +x /home/runner/work/CI-System-with-Selenium-demo/CI-System-with-Selenium-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
+      run: chmod +x /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
 
     - name: List directory contents for debugging
-      run: ls -la /home/runner/work/CI-System-with-Selenium-demo/CI-System-with-Selenium-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux
+      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux
 
     - name: Run TestProject1 test
       env:

@@ -13,8 +13,17 @@ namespace TestProject2
         [SetUp]
         public void SetUp()
         {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("headless");
+            options.AddArguments("no-sandbox");
+            options.AddArguments("disable-dev-shm-usage");
+            options.AddArguments("disable-gpu");
+            options.AddArguments("window-size=192x1080");
+            options.AddArguments("disable-extentions");
+            options.AddArguments("remote-debugging-port=9222");
+
             // Create object of ChromeDriver
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
 
             // Add implicit wait
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
