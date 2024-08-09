@@ -32,11 +32,15 @@ jobs:
     - name: Build
       run: dotnet build SeleniumBasicExercise.sln --no-restore
 
+    - name: Debugging - List output directories
+      run: |
+        echo "Listing contents of Debug directory:"
+        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/
+        echo "Listing contents of selenium-manager directory:"
+        ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/
+        
     - name: Set execute permissions for selenium-manager
-      run: chmod +x /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
-
-    - name: List directory contents for debugging
-      run: ls -la /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux
+      run: chmod +x /home/runner/work/CI-System-with-SeleniumWebDriver-demo/CI-System-with-SeleniumWebDriver-demo/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux/selenium-manager || echo "File not found, skipping chmod"
 
     - name: Run TestProject1 test
       env:
