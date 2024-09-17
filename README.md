@@ -62,7 +62,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches:
+    branches:```
       - main
   pull_request:
     branches:
@@ -121,3 +121,29 @@ jobs:
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: dotnet test TestProject3/TestProject3.csproj --verbosity normal
+
+```
+## Setup
+
+To use this pipeline:
+
+1.  **Clone the Repository**:
+  
+2.  **Navigate to the Directory**:
+        
+3.  **Ensure You Have GitHub Actions Configured**: Verify that the `.github/workflows/ci-pipeline.yml` file is present.
+    
+4.  **Push Changes**: Push any changes to the `main` branch or create a pull request to trigger the pipeline.
+    
+
+For more details on configuring GitHub Actions, refer to [GitHub Actions Documentation](https://docs.github.com/en/actions).
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+css
+
+Copy code
+
+ `This README provides a comprehensive overview of the CI pipeline, including configuration details, project descriptions, and setup instructions. Adjust any specifics as needed to fit your repository and pipeline details.` 
