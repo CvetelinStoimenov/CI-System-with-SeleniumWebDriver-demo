@@ -128,12 +128,16 @@ jobs:
 To use this pipeline:
 
 1.  **Clone the Repository**:
-  
+  ```sh
+git clone <repository-url>
+```
 2.  **Navigate to the Directory**:
-        
-3.  **Ensure You Have GitHub Actions Configured**: Verify that the `.github/workflows/ci-pipeline.yml` file is present.
+   ```sh
+cd <repository-directory>
+   ```
+4.  **Ensure You Have GitHub Actions Configured**: Verify that the `.github/workflows/ci-pipeline.yml` file is present.
     
-4.  **Push Changes**: Push any changes to the `main` branch or create a pull request to trigger the pipeline.
+5.  **Push Changes**: Push any changes to the `main` branch or create a pull request to trigger the pipeline.
     
 
 For more details on configuring GitHub Actions, refer to [GitHub Actions Documentation](https://docs.github.com/en/actions).
@@ -142,8 +146,7 @@ For more details on configuring GitHub Actions, refer to [GitHub Actions Documen
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-css
+```css
 
-Copy code
-
- `This README provides a comprehensive overview of the CI pipeline, including configuration details, project descriptions, and setup instructions. Adjust any specifics as needed to fit your repository and pipeline details.` 
+ `This README provides a comprehensive overview of the CI pipeline, including configuration details, project descriptions, and setup instructions. Adjust any specifics as needed to fit your repository and pipeline details.
+```
